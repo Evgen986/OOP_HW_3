@@ -3,16 +3,16 @@ import java.util.List;
 
 public class ListOfDogsIterator implements Iterator<Dog> {
     private List<Dog> listOfDogIterable;
+    private static int count;
+
     public ListOfDogsIterator(List<Dog> listOfDogIterable) {
         this.listOfDogIterable = listOfDogIterable;
-
+        count = 0;
     }
 
     public static void setCount(int count) {
         ListOfDogsIterator.count = count;
     }
-
-    private static int count;
 
     @Override
     public boolean hasNext() {
@@ -21,7 +21,6 @@ public class ListOfDogsIterator implements Iterator<Dog> {
 
     @Override
     public Dog next() {
-        count++;
-        return listOfDogIterable.get(count-1);
+        return listOfDogIterable.get(count++);
     }
 }

@@ -13,19 +13,16 @@ public class Main {
         while (iter.hasNext()){
             System.out.println(iter.next());
         }
-        ListOfDogsIterator.setCount(0); // Приходится обнулять счетчик в классе ListOfDogsIterator
 
         System.out.println("\n--------Сортировка через класс ComparableOfNameDog по имени--------");
         listDogs.getListDogs().sort(new ComparableOfNameDog());
         for (Dog dog: listDogs){
             System.out.println(dog);
         }
-        ListOfDogsIterator.setCount(0);
 
         System.out.println("\n--------Сортировка через ссылку на метод по цвету--------");
         listDogs.getListDogs().sort(Comparator.comparing(Dog::getColor));
         listDogs.forEach(System.out::println);
-        ListOfDogsIterator.setCount(0);
 
         System.out.println("\n--------Сортировка через анонимный класс по весу--------");
         listDogs.getListDogs().sort(new Comparator<>() {
